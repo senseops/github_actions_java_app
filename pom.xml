@@ -13,6 +13,26 @@
     </properties>
 
     <dependencies>
-        <!-- No dependencies required for this example -->
+        <!-- Dependency for Servlets -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Dependency for MySQL connection -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.30</version>
+        </dependency>
+
+        <!-- Dependency for OWASP Java Encoder (to fix XSS) -->
+        <dependency>
+            <groupId>org.owasp.encoder</groupId>
+            <artifactId>encoder</artifactId>
+            <version>1.2.3</version>
+        </dependency>
     </dependencies>
 </project>
