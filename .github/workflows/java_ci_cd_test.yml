@@ -1,0 +1,41 @@
+name: java_ci_cd_test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code using shared action
+      - name: Checkout code shared_action_test
+        uses: nanjansudhakar/github_actions_library/.github/actions/checkout_code@main
+
+      # Step 2: Set up JDK using shared action
+      - name: Set up JDK 11 shared_action_test
+        uses: nanjansudhakar/github_actions_library/.github/actions/setup_jdk@main
+        with:
+          java-version: '11'
+          distribution: 'adopt'  # or 'temurin', 'zulu', or another distribution you are using
+
+      # Step 3: Build the application with Maven using shared action
+      - name: Build with Maven shared_action_test
+        uses: nanjansudhakar/github_actions_library/.github/actions/build_maven@main
+
+      # Step 4: SonarQube scan using shared action
+      - name: SonarQube Scan shared_action_test
+        uses: nanjansudhakar/github_actions_library/.github/actions/scan_sonarqube@main
+
+      # Step 5: Checkmarx Security Scanning using shared action
+      - name: Checkmarx Security Scan shared_action_test
+        uses: nanjansudhakar/github_actions_library/.github/actions/scan_checkmarx@main
+
+      # # Step 6: Publish to Artifactory using shared action
+      # - name: Publish to Artifactory shared_action_test
+      #   uses: nanjansudhakar/github_actions_library/.github/actions/publish_artifactory@main
