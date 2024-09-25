@@ -26,6 +26,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '17'  # Adjust to your Java version
+        distribution: 'adopt'  # Specify the distribution, e.g., 'adopt', 'zulu', 'corretto', etc.
 
     - name: "Initialize CodeQL"
       uses: github/codeql-action/init@v2
